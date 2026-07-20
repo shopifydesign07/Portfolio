@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopifyDesigns.PK — Shopify Store Design Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1F2A;
+    --ink-soft:#262C3A;
+    --ivory:#F6F1E7;
+    --brass:#B8873B;
+    --brass-light:#D9AE6C;
+    --rose:#BE6B62;
+    --teal:#3E6B69;
+    --line: rgba(246,241,231,0.18);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--ink);
+    color:var(--ivory);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:'Fraunces', serif; margin:0; font-weight:500;}
+  a{color:inherit;}
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    display:inline-block;
+    width:28px;height:1px;
+    background:var(--brass-light);
+  }
+
+  /* HERO */
+  .hero{
+    padding:100px 0 80px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:-120px; right:-160px;
+    width:420px; height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(184,135,59,0.16) 0%, rgba(184,135,59,0) 70%);
+    pointer-events:none;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    line-height:1.12;
+    max-width:820px;
+    margin:22px 0 22px;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--brass-light);
+  }
+  .hero p.lede{
+    max-width:560px;
+    font-size:1.08rem;
+    color:rgba(246,241,231,0.78);
+    margin-bottom:36px;
+  }
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    border-radius:2px;
+    font-weight:600;
+    font-size:0.92rem;
+    text-decoration:none;
+    border:1px solid transparent;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--brass); color:var(--ink);}
+  .btn-primary:hover{background:var(--brass-light);}
+  .btn-ghost{border-color:var(--line); color:var(--ivory);}
+  .btn-ghost:hover{border-color:var(--brass-light); color:var(--brass-light);}
+
+  /* SECTION LABEL */
+  .section{padding:76px 0;}
+  .section-head{margin-bottom:44px;}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem); margin-top:14px; max-width:600px;}
+
+  /* SWATCH GRID */
+  .swatch-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:26px;
+  }
+  @media (max-width:720px){ .swatch-grid{grid-template-columns:1fr;} }
+
+  .swatch-card{
+    background:var(--ink-soft);
+    border:1px dashed rgba(246,241,231,0.28);
+    border-radius:2px;
+    padding:26px 26px 24px;
+    position:relative;
+  }
+  .swatch-strip{
+    height:10px;
+    border-radius:1px;
+    margin-bottom:20px;
+    display:flex;
+    overflow:hidden;
+  }
+  .swatch-strip span{flex:1;}
+
+  .swatch-card .tag{
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    font-weight:700;
+    margin-bottom:10px;
+    display:block;
+  }
+  .swatch-card h3{
+    font-size:1.5rem;
+    margin-bottom:6px;
+  }
+  .swatch-card .meta{
+    font-size:0.82rem;
+    color:rgba(246,241,231,0.55);
+    margin-bottom:14px;
+  }
+  .swatch-card p.blurb{
+    font-size:0.95rem;
+    color:rgba(246,241,231,0.82);
+    margin-bottom:18px;
+  }
+  .swatch-card .visit{
+    font-size:0.85rem;
+    font-weight:600;
+    text-decoration:none;
+    color:var(--ivory);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    border-bottom:1px solid var(--brass-light);
+    padding-bottom:2px;
+  }
+  .swatch-card .visit:hover{color:var(--brass-light);}
+
+  /* PROCESS */
+  .process-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    position:relative;
+  }
+  @media (max-width:760px){ .process-row{grid-template-columns:1fr; gap:28px;} }
+  .process-row::before{
+    content:"";
+    position:absolute;
+    top:19px; left:0; right:0;
+    height:1px;
+    background-image:linear-gradient(to right, var(--line) 60%, rgba(0,0,0,0) 0%);
+    background-position:top;
+    background-size:12px 1px;
+    background-repeat:repeat-x;
+  }
+  @media (max-width:760px){ .process-row::before{display:none;} }
+  .process-step{padding-right:20px; position:relative;}
+  .step-num{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:var(--ink);
+    border:1px solid var(--brass-light);
+    color:var(--brass-light);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:0.95rem;
+    margin-bottom:18px;
+    position:relative;
+    z-index:1;
+  }
+  .process-step h3{font-size:1.1rem; margin-bottom:8px;}
+  .process-step p{font-size:0.88rem; color:rgba(246,241,231,0.65); margin:0;}
+
+  /* WHY / RATES */
+  .split{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:50px;
+  }
+  @media (max-width:760px){ .split{grid-template-columns:1fr;} }
+  .why-list{list-style:none; margin:20px 0 0; padding:0;}
+  .why-list li{
+    padding:16px 0;
+    border-top:1px solid var(--line);
+    font-size:0.98rem;
+    color:rgba(246,241,231,0.85);
+  }
+  .why-list li:last-child{border-bottom:1px solid var(--line);}
+  .why-list li strong{color:var(--ivory); font-weight:600;}
+
+  .rate-card{
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:30px;
+  }
+  .rate-card .tag{color:var(--brass-light); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700;}
+  .rate-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:14px 0; border-bottom:1px dashed rgba(246,241,231,0.2);
+    font-size:0.95rem;
+  }
+  .rate-row:last-child{border-bottom:none;}
+  .rate-row span:last-child{font-family:'Fraunces', serif; color:var(--brass-light); font-size:1.05rem;}
+
+  /* CONTACT */
+  .contact{
+    background:var(--ink-soft);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:70px 0;
+    text-align:center;
+  }
+  .contact h2{font-size:clamp(1.6rem,3.4vw,2.4rem); max-width:620px; margin:14px auto 16px;}
+  .contact p{max-width:480px; margin:0 auto 30px; color:rgba(246,241,231,0.7);}
+  .contact .cta-row{justify-content:center;}
+  .pay-note{
+    margin-top:28px;
+    font-size:0.82rem;
+    color:rgba(246,241,231,0.45);
+    letter-spacing:0.02em;
+  }
+
+  footer{
+    padding:30px 0;
+    text-align:center;
+    font-size:0.8rem;
+    color:rgba(246,241,231,0.4);
+  }
+
+  .trust-bar{
+    border-bottom:1px solid var(--line);
+    background:rgba(246,241,231,0.03);
+  }
+  .trust-bar-inner{
+    display:flex;
+    flex-wrap:wrap;
+    gap:32px;
+    padding:22px 24px;
+    justify-content:center;
+  }
+  .trust-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.82rem;
+    color:rgba(246,241,231,0.68);
+    font-weight:500;
+  }
+  .trust-item svg{color:var(--brass-light); flex-shrink:0;}
+
+  .footer-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+  }
+  .footer-socials{display:flex; gap:16px;}
+  .footer-socials a{
+    color:rgba(246,241,231,0.55);
+    display:flex;
+    transition:color .15s ease;
+  }
+  .footer-socials a:hover{color:var(--brass-light);}
+
+  /* TESTIMONIALS */
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  @media (max-width:820px){ .testi-grid{grid-template-columns:1fr;} }
+  .testi-card{
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+  }
+  .testi-stars{color:var(--brass-light); font-size:0.9rem; letter-spacing:2px; margin-bottom:14px;}
+  .testi-card p.quote{
+    font-size:0.95rem;
+    color:rgba(246,241,231,0.85);
+    font-style:italic;
+    margin:0 0 20px;
+    flex-grow:1;
+  }
+  .testi-who{display:flex; align-items:center; gap:12px;}
+  .testi-avatar{
+    width:36px;height:36px;
+    border-radius:50%;
+    background:var(--ink);
+    border:1px solid var(--brass-light);
+    color:var(--brass-light);
+    font-family:'Fraunces', serif;
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.95rem;
+  }
+  .testi-name{font-size:0.88rem; font-weight:600; color:var(--ivory);}
+  .testi-role{font-size:0.78rem; color:rgba(246,241,231,0.5);}
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">ShopifyDesigns.PK — Sahiwal, Pakistan</div>
+      <h1>Storefronts stitched for Pakistan's fashion houses, <em>tailored for the world's shoppers.</em></h1>
+      <p class="lede">I design and build Shopify stores for clothing brands — from first sketch to first sale. A selection of stores built for clients across Pakistan, ready to take on international work.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/923208206572" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:hussnainshk95@gmail.com">Email Me</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="wrap trust-bar-inner">
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H18L17.2 20.2C17.14 21.2 16.3 22 15.3 22H8.7C7.7 22 6.86 21.2 6.8 20.2L6 8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6C9 4.34 10.34 3 12 3C13.66 3 15 4.34 15 6V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Built on Shopify</span>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Built for International Buyers</span>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12a8 8 0 1 1 8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M9 12h6M9 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>4 Stores Launched</span>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="13" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.6"/><path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Payoneer &amp; Wise Accepted</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">The Swatch Book</div>
+        <h2>Four clothing brands, four different customers.</h2>
+      </div>
+
+      <div class="swatch-grid">
+
+        <div class="swatch-card">
+          <div class="swatch-strip">
+            <span style="background:#C97F86"></span>
+            <span style="background:#E7C9A9"></span>
+            <span style="background:#8A5A44"></span>
+            <span style="background:#F1E4CE"></span>
+          </div>
+          <span class="tag">Women's Formal &amp; Unstitched</span>
+          <h3>The Fabric Store</h3>
+          <div class="meta">35 retail outlets · est. 2016 · thefabricstore.pk</div>
+          <p class="blurb">A heritage retailer's full catalogue — unstitched fabric, pret, and shawls — organized into a fast, discount-friendly storefront built to move seasonal collections.</p>
+          <a class="visit" href="https://www.thefabricstore.pk/" target="_blank" rel="noopener">View Store →</a>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-strip">
+            <span style="background:#5B4B63"></span>
+            <span style="background:#7C8F6E"></span>
+            <span style="background:#C9A15A"></span>
+            <span style="background:#2E2A2E"></span>
+          </div>
+          <span class="tag">Luxury Formalwear</span>
+          <h3>Farasha</h3>
+          <div class="meta">Formal chiffon &amp; embroidery · farashaonline.pk</div>
+          <p class="blurb">A premium formalwear label with video lookbooks and heavy embroidery detail, built with a bespoke, boutique feel for occasion-wear shoppers.</p>
+          <a class="visit" href="https://www.farashaonline.pk/" target="_blank" rel="noopener">View Store →</a>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-strip">
+            <span style="background:#E8DCC9"></span>
+            <span style="background:#C9AFA0"></span>
+            <span style="background:#8C7A6B"></span>
+            <span style="background:#F6F1E7"></span>
+          </div>
+          <span class="tag">Casual Ready-to-Wear</span>
+          <h3>Mishkaa</h3>
+          <div class="meta">Kurtas &amp; co-ord sets · mishkaa.com</div>
+          <p class="blurb">A clean, everyday-wear storefront built around kurtas and co-ord sets — kept minimal and uncluttered so the product photography does the selling.</p>
+          <a class="visit" href="https://mishkaa.com/" target="_blank" rel="noopener">View Store →</a>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-strip">
+            <span style="background:#C9A227"></span>
+            <span style="background:#3E6B69"></span>
+            <span style="background:#B5456A"></span>
+            <span style="background:#E27D3F"></span>
+          </div>
+          <span class="tag">Trendy Everyday Fashion</span>
+          <h3>JF Clothing</h3>
+          <div class="meta">Cash on delivery · jannatfatima.com</div>
+          <p class="blurb">A vibrant, high-turnover catalogue store with collection-led merchandising, Cash on Delivery built in, and fast-moving new arrivals for value-conscious buyers.</p>
+          <a class="visit" href="https://www.jannatfatima.com/" target="_blank" rel="noopener">View Store →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">What Clients Say</div>
+        <h2>Feedback from store owners I've worked with.</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="quote">"Handed over our whole product catalogue and it came back organized better than I imagined. Site loads fast and my customers actually check out now instead of dropping off."</p>
+          <div class="testi-who">
+            <div class="testi-avatar">A</div>
+            <div>
+              <div class="testi-name">Clothing Brand Owner</div>
+              <div class="testi-role">Lahore, Pakistan</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="quote">"Explained everything in plain language, no tech jargon. Fixed our checkout issues within a day and was always reachable on WhatsApp."</p>
+          <div class="testi-who">
+            <div class="testi-avatar">S</div>
+            <div>
+              <div class="testi-name">Perfume Store Owner</div>
+              <div class="testi-role">Punjab, Pakistan</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="quote">"Was skeptical about outsourcing our website, but the final store looked more premium than brands twice our size. Would work with him again."</p>
+          <div class="testi-who">
+            <div class="testi-avatar">M</div>
+            <div>
+              <div class="testi-name">Watch Brand Owner</div>
+              <div class="testi-role">Sahiwal, Pakistan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:0.78rem; color:rgba(246,241,231,0.4); margin-top:22px;">* Sample feedback reflecting real project outcomes — swap in your clients' actual names and quotes once you have them on record.</p>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">How It Works</div>
+        <h2>From first message to launch day.</h2>
+      </div>
+      <div class="process-row">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <h3>Consult</h3>
+          <p>We talk about your brand, your products, and what's not working on your current site — or what you need built from zero.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <h3>Design</h3>
+          <p>I put together a mockup of your homepage and product pages, matched to your brand's colours and audience.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <h3>Build</h3>
+          <p>Theme setup, product catalogue, collections, checkout, and payment/shipping rules — built and tested on Shopify.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <h3>Launch</h3>
+          <p>Final review together, then we go live — with support after launch if anything needs adjusting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="eyebrow">Why Work With Me</div>
+          <h2 style="margin-top:14px; font-size:1.7rem;">Focused on one niche, so I move fast.</h2>
+          <ul class="why-list">
+            <li><strong>Clothing &amp; fashion, specifically.</strong> Every store I've built is in this niche — sizing tables, lookbooks, collection structures, all familiar territory.</li>
+            <li><strong>Full-service Shopify build.</strong> Theme, product catalogue, collections, checkout, and payment/shipping setup — not just a template drop-in.</li>
+            <li><strong>Flexible hours.</strong> Comfortable working across US, UK, and Australian time zones.</li>
+          </ul>
+        </div>
+        <div class="rate-card">
+          <span class="tag">Get A Quote</span>
+          <h3 style="font-size:1.35rem; margin:14px 0 12px;">Every store is priced on scope, not a template.</h3>
+          <p style="font-size:0.92rem; color:rgba(246,241,231,0.75); margin-bottom:22px;">Send me your product count, must-have features, and current site (if any) — I'll reply with a clear, itemized quote within 24 hours.</p>
+          <ul class="why-list" style="margin-top:0;">
+            <li style="padding-top:0;"><strong>No hourly guesswork.</strong> One fixed price agreed before work starts.</li>
+            <li><strong>Fast turnaround.</strong> Most stores launch within 1–2 weeks of kickoff.</li>
+            <li style="border-bottom:none;"><strong>Support included.</strong> Free fixes for the first 2 weeks after launch.</li>
+          </ul>
+          <a class="btn btn-primary" style="width:100%; justify-content:center; margin-top:8px;" href="https://wa.me/923208206572" target="_blank" rel="noopener">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center;">Let's Talk</div>
+      <h2>Have a clothing brand that needs a storefront?</h2>
+      <p>Send me a link to what you're selling now, and I'll tell you honestly what I'd change.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/923208206572" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:hussnainshk95@gmail.com">Email Me</a>
+      </div>
+      <div class="pay-note">International payments accepted via Payoneer &amp; Wise</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/shopifydesigns.pk/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61591191316668" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 21v-7h2.5l.5-3H14V9c0-.9.3-1.5 1.7-1.5H17V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8v3h2.8v7H14Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div>ShopifyDesigns.PK · Sahiwal, Punjab, Pakistan · © 2026</div>
+    </div>
+  </footer>
+
+</body>
+</html>
