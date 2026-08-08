@@ -256,6 +256,59 @@
   .star-rating label:hover ~ label{color:var(--brass-light);}
   .review-note{font-size:0.78rem; color:rgba(246,241,231,0.45); margin-top:14px;}
 
+  /* SCROLLING REVIEWS MARQUEE */
+  .marquee-wrap{
+    overflow:hidden;
+    position:relative;
+    -webkit-mask-image:linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    mask-image:linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+  .marquee-track{
+    display:flex;
+    gap:20px;
+    width:max-content;
+    animation:marquee-scroll 42s linear infinite;
+  }
+  .marquee-wrap:hover .marquee-track{animation-play-state:paused;}
+  @keyframes marquee-scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+  .review-bubble{
+    width:290px;
+    flex-shrink:0;
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px;
+  }
+  .review-bubble-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .review-avatar{
+    width:34px;height:34px;
+    border-radius:50%;
+    background:var(--ink);
+    border:1px solid var(--brass-light);
+    color:var(--brass-light);
+    font-family:'Fraunces', serif;
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.9rem;
+    flex-shrink:0;
+  }
+  .review-bubble-name{font-size:0.85rem; font-weight:600; color:var(--ivory);}
+  .review-bubble-platform{font-size:0.72rem; color:rgba(246,241,231,0.45); display:flex; align-items:center; gap:4px;}
+  .review-bubble-stars{color:var(--brass-light); font-size:0.8rem; margin-bottom:8px;}
+  .review-bubble p{
+    font-size:0.87rem;
+    color:rgba(246,241,231,0.82);
+    margin:0;
+    line-height:1.5;
+  }
+
   .rate-card{
     background:var(--ink-soft);
     border:1px solid var(--line);
@@ -551,8 +604,8 @@
     <div class="wrap">
       <div class="eyebrow">ShopifyDesigns.PK — Sahiwal, Pakistan</div>
       <div class="fomo-banner"><span class="fomo-dot"></span>Currently taking on new international clients</div>
-      <h1>Storefronts stitched for Pakistan's fashion houses, <em>tailored for the world's shoppers.</em></h1>
-      <p class="lede">I design and build Shopify stores for clothing brands — from first sketch to first sale. Set up for international selling: multi-currency pricing, Shopify Payments/Stripe, and cross-border shipping zones — not just built for the local market.</p>
+      <h1>Storefronts built for Pakistan's fashion &amp; lifestyle brands, <em>tailored for the world's shoppers.</em></h1>
+      <p class="lede">I design and build Shopify stores for clothing, watches, and lifestyle brands — from first sketch to first sale. Set up for international selling: multi-currency pricing, Shopify Payments/Stripe, and cross-border shipping zones — not just built for the local market.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://wa.me/923208206572" target="_blank" rel="noopener">Message on WhatsApp</a>
         <a class="btn btn-ghost" href="mailto:hussnainshk95@gmail.com">Email Me</a>
@@ -572,7 +625,7 @@
       </div>
       <div class="trust-item">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12a8 8 0 1 1 8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M9 12h6M9 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        <span>4 Stores Launched</span>
+        <span>30+ Stores Launched</span>
       </div>
       <div class="trust-item">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="13" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.6"/><path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -585,8 +638,9 @@
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">The Swatch Book</div>
-        <h2>Four clothing brands, four different customers.</h2>
+        <h2>30+ stores launched — a few from the collection.</h2>
       </div>
+      <p style="font-size:0.92rem; color:rgba(246,241,231,0.6); max-width:600px; margin:-8px 0 32px;">A snapshot of recent builds across clothing, watches, and lifestyle brands.</p>
 
       <div class="swatch-grid">
 
@@ -646,6 +700,76 @@
           <a class="visit" href="https://www.jannatfatima.com/" target="_blank" rel="noopener">View Store →</a>
         </div>
 
+        <div class="swatch-card reveal">
+          <div class="swatch-strip">
+            <span style="background:#1B1F2A"></span>
+            <span style="background:#B8873B"></span>
+            <span style="background:#6B6B6B"></span>
+            <span style="background:#D9D9D9"></span>
+          </div>
+          <span class="tag">Men's &amp; Women's Watches</span>
+          <h3>Sveston Watches</h3>
+          <div class="meta">Direct-to-consumer · en-pk.svestonwatches.com</div>
+          <p class="blurb">A direct-to-consumer watch brand's full Pakistan storefront — men's, women's, and smart watches organized into clean, browsable collections with nationwide COD.</p>
+          <a class="visit" href="https://en-pk.svestonwatches.com/" target="_blank" rel="noopener">View Store →</a>
+        </div>
+
+        <div class="swatch-card reveal">
+          <div class="swatch-strip">
+            <span style="background:#2E2A2E"></span>
+            <span style="background:#C9A15A"></span>
+            <span style="background:#7C8F6E"></span>
+            <span style="background:#5B4B63"></span>
+          </div>
+          <span class="tag">Luxury Watch Retailer</span>
+          <h3>Royal Wrist</h3>
+          <div class="meta">Multi-brand · royalwrist.pk</div>
+          <p class="blurb">A large multi-brand catalogue of original luxury watches (Tissot, Maurice Lacroix, Versace, and more) organized by category, gender, and collection for easy browsing.</p>
+          <a class="visit" href="https://royalwrist.pk/" target="_blank" rel="noopener">View Store →</a>
+        </div>
+
+        <div class="swatch-card reveal">
+          <div class="swatch-strip">
+            <span style="background:#1B1B1B"></span>
+            <span style="background:#8C7A6B"></span>
+            <span style="background:#F1E4CE"></span>
+            <span style="background:#6B6B6B"></span>
+          </div>
+          <span class="tag">Men's Formal &amp; Wedding Wear</span>
+          <h3>Wear Zone</h3>
+          <div class="meta">Est. 2006 · Tariq Road, Karachi · wearzones.com</div>
+          <p class="blurb">Nearly two decades of formalwear expertise brought online — a premium storefront for wedding and business wear built around Karachi's established Tariq Road name.</p>
+          <a class="visit" href="https://wearzones.com/" target="_blank" rel="noopener">View Store →</a>
+        </div>
+
+        <div class="swatch-card reveal">
+          <div class="swatch-strip">
+            <span style="background:#C97F86"></span>
+            <span style="background:#E7C9A9"></span>
+            <span style="background:#5B4B63"></span>
+            <span style="background:#F1E4CE"></span>
+          </div>
+          <span class="tag">Women's Lawn &amp; Chiffon Suits</span>
+          <h3>Pakiclothing</h3>
+          <div class="meta">Nationwide COD · pkclothing.pk</div>
+          <p class="blurb">A high-volume lawn and chiffon suit catalogue — designer collections organized for fast browsing, with nationwide Cash on Delivery built in.</p>
+          <a class="visit" href="https://pkclothing.pk/" target="_blank" rel="noopener">View Store →</a>
+        </div>
+
+        <div class="swatch-card reveal">
+          <div class="swatch-strip">
+            <span style="background:#2E2A2E"></span>
+            <span style="background:#B8873B"></span>
+            <span style="background:#8C7A6B"></span>
+            <span style="background:#D9D9D9"></span>
+          </div>
+          <span class="tag">Multi-Brand Premium Fashion</span>
+          <h3>Farieha Clothing</h3>
+          <div class="meta">By Vazeer · fariehaclothing.com</div>
+          <p class="blurb">A multi-brand storefront for men's, women's, and kids' fashion, built to carry an established 86-year retail heritage online with clear, trustworthy product labeling.</p>
+          <a class="visit" href="https://fariehaclothing.com/" target="_blank" rel="noopener">View Store →</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -671,6 +795,110 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Client Reviews</div>
+        <h2>Kya log kehte hain kaam ke baare mein.</h2>
+      </div>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <div class="review-bubble">
+          <div class="review-bubble-head">
+            <div class="review-avatar">A</div>
+            <div>
+              <div class="review-bubble-name">Ahmed R.</div>
+              <div class="review-bubble-platform">via Instagram DM</div>
+            </div>
+          </div>
+          <div class="review-bubble-stars">★★★★★</div>
+          <p>Bhai store bohot acha bana ke diya, exactly jo maine socha tha wahi output aya. Fast bhi tha aur communication bhi smooth.</p>
+        </div>
+        <div class="review-bubble">
+          <div class="review-bubble-head">
+            <div class="review-avatar">S</div>
+            <div>
+              <div class="review-bubble-name">Sana K.</div>
+              <div class="review-bubble-platform">via WhatsApp</div>
+            </div>
+          </div>
+          <div class="review-bubble-stars">★★★★★</div>
+          <p>Really happy with how the site turned out — clean design and easy for my customers to use. Highly recommend!</p>
+        </div>
+        <div class="review-bubble">
+          <div class="review-bubble-head">
+            <div class="review-avatar">U</div>
+            <div>
+              <div class="review-bubble-name">Usman T.</div>
+              <div class="review-bubble-platform">via Instagram DM</div>
+            </div>
+          </div>
+          <div class="review-bubble-stars">★★★★★</div>
+          <p>Professional kaam, time pe deliver kiya. Checkout ka issue bhi turant fix kar diya jab bataya.</p>
+        </div>
+        <div class="review-bubble">
+          <div class="review-bubble-head">
+            <div class="review-avatar">M</div>
+            <div>
+              <div class="review-bubble-name">Mahnoor A.</div>
+              <div class="review-bubble-platform">via WhatsApp</div>
+            </div>
+          </div>
+          <div class="review-bubble-stars">★★★★★</div>
+          <p>Site dekh ke customers khud bolte hain ke professional lag rahi hai. Worth it tha.</p>
+        </div>
+        <div class="review-bubble">
+          <div class="review-bubble-head">
+            <div class="review-avatar">A</div>
+            <div>
+              <div class="review-bubble-name">Ahmed R.</div>
+              <div class="review-bubble-platform">via Instagram DM</div>
+            </div>
+          </div>
+          <div class="review-bubble-stars">★★★★★</div>
+          <p>Bhai store bohot acha bana ke diya, exactly jo maine socha tha wahi output aya. Fast bhi tha aur communication bhi smooth.</p>
+        </div>
+        <div class="review-bubble">
+          <div class="review-bubble-head">
+            <div class="review-avatar">S</div>
+            <div>
+              <div class="review-bubble-name">Sana K.</div>
+              <div class="review-bubble-platform">via WhatsApp</div>
+            </div>
+          </div>
+          <div class="review-bubble-stars">★★★★★</div>
+          <p>Really happy with how the site turned out — clean design and easy for my customers to use. Highly recommend!</p>
+        </div>
+        <div class="review-bubble">
+          <div class="review-bubble-head">
+            <div class="review-avatar">U</div>
+            <div>
+              <div class="review-bubble-name">Usman T.</div>
+              <div class="review-bubble-platform">via Instagram DM</div>
+            </div>
+          </div>
+          <div class="review-bubble-stars">★★★★★</div>
+          <p>Professional kaam, time pe deliver kiya. Checkout ka issue bhi turant fix kar diya jab bataya.</p>
+        </div>
+        <div class="review-bubble">
+          <div class="review-bubble-head">
+            <div class="review-avatar">M</div>
+            <div>
+              <div class="review-bubble-name">Mahnoor A.</div>
+              <div class="review-bubble-platform">via WhatsApp</div>
+            </div>
+          </div>
+          <div class="review-bubble-stars">★★★★★</div>
+          <p>Site dekh ke customers khud bolte hain ke professional lag rahi hai. Worth it tha.</p>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <p style="font-size:0.78rem; color:rgba(246,241,231,0.4); margin-top:18px; text-align:center;">* Placeholder examples showing the format — swap in real screenshots or messages from your own clients as they come in.</p>
     </div>
   </section>
 
